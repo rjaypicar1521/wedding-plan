@@ -1,42 +1,278 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-.card {
-  padding: 2em;
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.read-the-docs {
+.app-footer {
+  margin-top: 2rem;
+  padding: 1rem;
   color: #888;
+  font-size: 0.9rem;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  text-align: center;
+}
+
+.wedding-title {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.countdown-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.countdown-card h2 {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.countdown-number {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #667eea;
+  line-height: 1;
+}
+
+.wedding-date {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.venue {
+  font-size: 1rem;
+  color: #888;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-card.confirmed .stat-number {
+  color: #22c55e;
+}
+
+.stat-card.invited .stat-number {
+  color: #f59e0b;
+}
+
+.stat-card.declined .stat-number {
+  color: #ef4444;
+}
+
+/* Guest List Styles */
+.guest-list {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.guest-list h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  text-align: center;
+}
+
+.add-guest-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.add-guest-form input {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.add-guest-form button {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-guest-form button:hover {
+  background: #5a67d8;
+}
+
+.guests-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.no-guests {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}
+
+.guest-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.guest-item:last-child {
+  border-bottom: none;
+}
+
+.guest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.guest-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.guest-email {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.guest-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.status-select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.status-select.status-confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-select.status-invited {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-select.status-declined {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.remove-btn {
+  background: #fee2e2;
+  color: #991b1b;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #fecaca;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .add-guest-form {
+    flex-direction: column;
+  }
+  
+  .add-guest-form input,
+  .add-guest-form button {
+    width: 100%;
+  }
+  
+  .guest-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .guest-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
